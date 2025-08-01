@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkata Vinitha  Portfolio</title>
+    <style>
+        body {
+    color: #333;
+    background: linear-gradient(to right, #d88bed, #d950ff);
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+header {
+    background: linear-gradient(to right, #2bcbbe, #aaddf4);
+    font-style: italic;
+    color: #110c0c;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home {
+    background: linear-gradient(to bottom right, #dc9043, #f80ce4); 
+    padding: 80px; 
+    text-align: center; 
+    color: #0c0b0b; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.home-container {
+    max-width: 700px;
+    text-align: center; 
+    margin: 20px; 
+}
+
+.home-container h1 {
+    font-size: 2.5em; 
+    margin-bottom: 10px; 
+    color: purple; 
+    font-style: italic;
+}
+
+.home-container h3 {
+    font-size: 1.5em; 
+    margin-bottom: 20px; 
+}
+
+.home-container p {
+    line-height: 1.6;
+    font-size: 1.1em; 
+    margin-bottom: 20px; 
+}
+
+.home-sci {
+    display: flexbox; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.home-sci a img {
+    border-radius: 100%; 
+    transition: transform 0.3s ease; 
+}
+
+.home-sci a:hover img {
+    transform: scale(1.1); 
+}
+
+.image img {
+    border-radius: 100; 
+    animation: fadeIn 5.0s ease-in-out; 
+    box-shadow: 0 4px 10px rgba(193, 24, 24, 0.2); 
+    margin-top: 20px; 
+}
+
+#about {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#education {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    padding: 60px 0;
+    text-align: center;
+}
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.timeline-item {
+    background: #ebbdee;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(226, 211, 211, 0.1);
+    width: 80%;
+    max-width: 600px;
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content h3 {
+    color: #6e099c;
+    margin-bottom: 5px;
+}
+
+.timeline-content span {
+    font-weight: italic;
+    color: #333;
+}
+
+.timeline-content p {
+    color: #666;
+}
+
+#skills {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    padding: 60px 0;
+    text-align: center;
+}
+.certification-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+    margin-top: 40px; 
+}
+
+.certification-card {
+    background: #e6a4e7; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    width: 200px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.certification-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 30px rgba(192, 62, 231, 0.2); 
+}
+
+.certification-card img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 20px; 
+    margin-bottom: 15px; 
+}
+
+.certification-info h3 {
+    margin: 10px 0; 
+    color: #6c63ff; 
+}
+
+.certification-info p {
+    color: #666; 
+    font-size: 14px; 
+}
+
+#contact {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    padding: 60px 0;
+    text-align: center;
+}
+
+footer {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+               * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            color: #333;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            transition: background 0.5s ease;
+        }
+        header {
+            background-color: #363d47;
+            font-style: italic;
+            color: #fff;
+            padding: 20px 0;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar {
+            display: flex;
+            justify-content: right;
+            gap: 30px;
+        }
+        .navbar a {
+            color: #8c058c;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #b6aec2;
+        }
+        .home {
+            background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+            padding: 60px;
+            text-align: center;
+            color: #0c0b0b;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .home-container {
+            max-width: 600px;
+            text-align: center;
+        }
+        .home-container h3, .home-container h1 {
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .home-container p {
+            line-height: 1.5;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .home-sci a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .home-sci a img {
+            border-radius: 50%;
+            transition: transform 3.0s ease;
+        }
+        .home-sci a:hover img {
+            transform: scale(1.8);
+            background-color: #decce6;
+        }
+        .image img {
+            border-radius: 50%;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            padding: 60px 0;
+            text-align: right;
+        }
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #6e099c;
+        }
+        
+        #skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .skill-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #6c63ff;
+        }
+        .skill-info h3 {
+            margin-bottom: 10px;
+            color: #6c63ff;
+        }
+        .skill-info p {
+            font-size: 16px;
+            color: #333;
+        }
+        .certification-section {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    gap: 50px; 
+    margin-top: 40px; 
+    padding: 20px; 
+}
+#certifications {
+            text-align: center;
+            padding: 60px 0; 
+        }
+.certification-card {
+    background: #f9f3ff; 
+    border: 2px solid #6c63ff; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px; 
+    text-align: center; 
+    width: 250px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.certification-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 30px rgba(192, 62, 231, 0.3); 
+}
+
+      #contact {
+    background: skyblue;
+    padding: 60px 0;
+}
+#contact {
+    background: #a8d3f6; 
+    padding: 60px 0; 
+}
+
+.contact-form {
+    max-width: 600px; 
+    margin: 0 auto;
+    background:skyblue; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 5px; 
+    color: #333; 
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #6c63ff; 
+    outline: none; 
+}
+
+button {
+    background-color: #6c63ff; 
+    color: #fff; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5a54d1; /
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Portfolio</h1>
+            <nav class="navbar">
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#home">Home</a>
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#about">About</a>
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#education">Education</a>
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#certifications">Certifications</a> <!-- Corrected link -->
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#skills">Skills</a>
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <section id="home" class="home">
+        <div class="home-container">
+            <h3>Hi, Myself</h3>
+            <h1>Vinitha</h1>
+            <h3>And</h3>
+            <p>I’m currently pursuing a BTech at SVR Engineering College. As I continue my studies, I am excited to deepen my knowledge in software engineering and work towards my goal of becoming a software developer.</p>
+            <div class="home-sci">
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#"><img src="https://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19749.png" alt="Facebook" width="40" height="40"></a>
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#"><img src="https://pngimg.com/uploads/instagram/instagram_PNG10.png" alt="Instagram" width="40" height="40"></a>
+                <a href="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#"><img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG38.png" alt="LinkedIn" width="40" height="40"></a>
+            </div>
+        </div>
+        <div class="image">
+            <img src="./Venkata Vinitha Portfolio_files/vinny.jpg" alt="Vinitha" width="250" height="250">
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p><i>I am an aspiring software developer, currently pursuing a BTech at SVR Engineering College. I have a passion for coding and a keen interest in learning new technologies. In my free time, I enjoy working on personal projects, reading tech blogs, and exploring new places. In addition to my academic pursuits, I enjoy working on personal projects that challenge my problem-solving abilities and allow me to apply my knowledge in practical scenarios. I am an active participant in coding competitions and hackathons, which have helped me develop teamwork and collaboration skills.</i></p>
+        </div>
+    </section>
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>SSC</h3>
+                        <span>AP Model High School</span>
+                        <p>Year: 2020</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Intermediate In Branch MPC</h3>
+                        <span>The Nandyal Junior College</span>
+                        <p>Year: 2022</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>BTech in Computer Science</h3>
+                        <span>SVR Engineering College</span>
+                        <p>Expected Graduation: 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div id="skills">
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-info">
+                        <h3>HTML5</h3>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-info">
+                        <h3>CSS3</h3>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <div class="skill-info">
+                        <h3>Git/GitHub</h3>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📜</div>
+                    <div class="skill-info">
+                        <h3>JavaScript</h3>
+                    </div>
+            </div>
+            <section id="certifications">
+                <div class="container">
+                    <h2>Certifications</h2>
+                    <div class="certification-section">
+                        <div class="certification-card">
+                            <div class="certification-header">
+                                <img src="./Venkata Vinitha Portfolio_files/certificate 1.jpg" alt="Certificate 1">
+                            </div>
+                            <div class="certification-body">
+                                <div class="certification-info">
+                                    <h3>Gen AI Study Jams</h3>
+                                    <p>Issued by: Google Cloud</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certification-card">
+                            <div class="certification-header">
+                                <img src="./Venkata Vinitha Portfolio_files/certificate 2.jpg" alt="Certificate 2">
+                            </div>
+                            <div class="certification-body">
+                                <div class="certification-info">
+                                    <h3>R-Programming Bascics for ata Science</h3>
+                                    <p>Issued by: IBM(Edx)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certification-card">
+                            <div class="certification-header">
+                                <img src="./Venkata Vinitha Portfolio_files/certificate 3.jpg" alt="Certificate 1">
+                            </div>
+                            <div class="certification-body">
+                                <div class="certification-info">
+                                    <h3>Google Cloud Computing Foundation &amp; Gen AI</h3>
+                                    <p>Issued by: Google Cloud</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you would like to get in touch, feel free to reach out through the form below or via email at <a href="mailto:venkatavinitha38@gmail.com">venkatavinitha38@gmail.com</a>.</p>
+            <form action="file:///C:/Users/venka/OneDrive/Desktop/vinny%20codes/portfolio/vinny.html#" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required="">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required="">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required=""></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+
+
+</div></div></section></body></html>
