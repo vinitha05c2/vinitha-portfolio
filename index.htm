@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>my portfolio</title>
+  <style>
+    .navbar {
+      display: flex;
+      flex-wrap: nowrap; 
+      justify-content: space-around; 
+      align-items: center; 
+      background-color: #333;
+      padding: 10px;
+      overflow-x: auto; 
+      white-space: nowrap; 
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    
+    @media screen and (max-width: 600px) {
+      .navbar {
+        flex-direction: row; 
+        gap: 10px; 
+      }
+
+      .navbar a {
+        font-size: 14px; 
+        padding: 8px;
+      }
+    }
+  </style>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #3b82f6;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .btn-hover {
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .btn-hover:hover {
+      transform: translateY(-2px);
+    }
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .progress-bar {
+      height: 8px;
+      border-radius: 4px;
+      background-color: #e5e7eb;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      transition: width 0.5s ease-in-out;
+    }
+    /* Hamburger Menu Styles */
+    #menu-toggle {
+      display: none;
+    }
+    #menu-toggle:checked ~ .nav-menu {
+      transform: translateX(0);
+    }
+    .nav-menu {
+      transition: transform 0.3s ease-in-out;
+    }
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 75%;
+        background: #1f51f4;
+        transform: translateX(100%);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 50;
+      }
+      .nav-link {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        color: white;
+      }
+      .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 100;
+      }
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #1e40af;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+      }
+      #menu-toggle:checked ~ .hamburger div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      #menu-toggle:checked ~ .hamburger div:nth-child(2) {
+        opacity: 0;
+      }
+      #menu-toggle:checked ~ .hamburger div:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+    @media (min-width: 769px) {
+      .hamburger {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 antialiased">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex flex-col items-center justify-center px-6 py-4 relative">
+      <!-- Hamburger Menu -->
+      <input type="checkbox" id="menu-toggle" class="hidden">
+      <label for="menu-toggle" class="hamburger md:hidden absolute right-6 top-6">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <!-- Navigation -->
+      <nav class="nav-menu md:flex md:space-x-6">
+        <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+        <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+        <a href="#education" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Education</a>
+        <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Skills</a>
+        <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Projects</a>
+        <a href="#certificates" class="nav-link text-gray-700 hover:text-blue-600 font-medium">certificates</a>
+        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="py-20 bg-gradient-to-br from-blue-300 to-indigo-500 text-white relative overflow-hidden" data-aos="fade-up">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-white/5 to-transparent"></div>
+    <div class="relative z-10 px-4 max-w-3xl mx-auto flex flex-col items-center justify-center text-center">
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight tracking-tight">
+        Hello, I'm <span class="text-yellow-300">Venkata Vinitha Raghavareddy</span>
+      </h1>
+      <p class="text-xl sm:text-2xl text-gray-200 mb-6 min-h-[2rem]">
+        <span id="typing" class="inline-block"></span>
+      </p>
+      <div class="flex justify-center gap-3 flex-wrap">
+        <a href="#contact" class="bg-yellow-300 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition shadow-md">
+          🚀 Let's Connect
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const phrases = [
+      "Engineering Studentt",
+    ];
+    let i = 0, j = 0, current = '', isDeleting = false;
+ 
+    function type() {
+      const element = document.getElementById("typing");
+      if (!element) return;
+
+      if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+          current = phrases[i].slice(0, j++);
+          element.innerHTML = current + '<span class="blinking">|</span>';
+        } else if (isDeleting && j >= 0) {
+          current = phrases[i].slice(0, j--);
+          element.innerHTML = current + '<span class="blinking">|</span>';
+        }
+
+        if (j === phrases[i].length) {
+          isDeleting = true;
+          setTimeout(type, 1200);
+          return;
+        } else if (isDeleting && j === 0) {
+          isDeleting = false;
+          i = (i + 1) % phrases.length;
+        }
+
+        setTimeout(type, isDeleting ? 50 : 100);
+      }
+    }
+    type();
+  </script>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white" data-aos="fade-up">
+    <div class="container mx-auto flex flex-col md:flex-row items-center gap-12 px-6">
+      <div class="w-64 h-64 rounded-full overflow-hidden shadow-xl border-4 border-blue-500 transform hover:scale-105 transition">
+        <img src="vinny.jpg" alt="Vinitha" class="w-full h-full object-cover" />
+      </div>
+      <div class="md:w-2/3">
+        <h3 class="text-4xl font-bold text-gray-800 mb-4">About Me</h3>
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+          I'm a B.Tech student in Computer Science and Engineering, actively developing my skills in areas such as software development, data analysis, and system design. 
+          I enjoy working on innovative projects, participating in tech competitions, and continuously learning emerging technologies. I am interested in technology and innovation, and I aim to build a successful career in the tech industry.
+        </p>
+        <a href="vinitha Resume1.pdf" download class="btn-hover inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+          📄 Download Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section (No Accordion) -->
+  <section id="education" class="py-20 bg-gradient-to-br from-blue-300 to-indigo-500 text-white" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h3 class="text-4xl font-bold text-gray-800 text-center mb-12">My Education</h3>
+      <div class="space-y-4">
+        <div class="border rounded-lg overflow-hidden shadow">
+          <div class="px-6 py-4 bg-yellow-200 text-blue-800 font-semibold">
+            B.Tech in Computer Science and Engineering
+          </div>
+          <div class="px-6 py-4 bg-white">
+            <p class="text-gray-600">SVR Engineering College</p>
+            <p>2022-2026</p>
+          </div>
+        </div>
+        <div class="border rounded-lg overflow-hidden shadow">
+          <div class="px-6 py-4 bg-yellow-200 text-blue-800 font-semibold">
+            Higher Secondary Education (MPC)  
+          </div>
+          <div class="px-6 py-4 bg-white">
+            <p class="text-gray-600">Nandyal Junior College</p>
+            <p>2020-2022</p>
+          </div>
+        </div>
+        <div class="border rounded-lg overflow-hidden shadow">
+          <div class="px-6 py-4 bg-yellow-200 text-blue-800 font-semibold">
+            Secondary Education  
+          </div>
+          <div class="px-6 py-4 bg-white">
+            <p class="text-gray-600">AP Model High School</p>
+            <p>2020</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleAccordion(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('hidden');
+    }
+  </script>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50" data-aos="fade-up">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold text-gray-800 mb-12">My Skills</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow project-card">
+          <div class="flex items-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/html-5--v1.png" class="w-12 h-12 mr-4" alt="HTML">
+            <h4 class="text-xl font-semibold text-gray-800">HTML</h4>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill bg-blue-600" style="width: 85%;"></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow project-card">
+          <div class="flex items-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/css3.png" class="w-12 h-12 mr-4" alt="CSS">
+            <h4 class="text-xl font-semibold text-gray-800">CSS</h4>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill bg-blue-600" style="width: 85%;"></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow project-card">
+          <div class="flex items-center mb-4">
+            <img src="https://img.icons8.com/ios-filled/100/007ACC/python.png" class="w-12 h-12 mr-4" alt="Python">
+            <h4 class="text-xl font-semibold text-gray-800">Python</h4>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill bg-blue-600" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow project-card">
+          <div class="flex items-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/figma.png" class="w-12 h-12 mr-4" alt="Figma">
+            <h4 class="text-xl font-semibold text-gray-800">Figma</h4>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill bg-blue-600" style="width: 75%;"></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow project-card">
+          <div class="flex items-center mb-4">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-12 h-12 mr-4" alt="Git & GitHub">
+            <h4 class="text-xl font-semibold text-gray-800">Git & GitHub</h4>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill bg-blue-600" style="width: 60%;"></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow project-card">
+          <div class="flex items-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/power-bi.png" class="w-12 h-12 mr-4" alt="Power BI">
+            <h4 class="text-xl font-semibold text-gray-800">Power BI</h4>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill bg-blue-600" style="width: 80%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gradient-to-br from-blue-300 to-indigo-500 text-white" data-aos="fade-up">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold text-gray-800 mb-12">My Projects</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <img src="portfolio project.png" alt="power-bi Project" class="mx-auto mb-4 rounded w-full h-48 object-cover">
+          <h4 class="text-xl font-semibold text-blue-600">power-bi Project</h4>
+          <p class="text-gray-600 mt-2">I presented a well-organized portfolio highlights the individual's strengths and creativity.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition w-full">
+          <img src="figma project.png" alt="Figma App UI" class="mx-auto mb-2 w-full w-40 h-43 object-contain">
+          <h4 class="text-lg font-semibold text-blue-600 text-center">Figma App UI</h4>
+          <p class="text-sm text-gray-600 mt-2 text-center">
+            Sleek mobile welcome screen designed in Figma.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <img src="power bi project.png" alt="power-bi project" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <h4 class="text-xl font-semibold text-blue-600">power bi project</h4>
+          <p class="text-gray-600 mt-2">I designed a responsive Power BI projects are widely used in business intelligence for tracking performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="py-20 bg-gray-100" data-aos="fade-up">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold text-gray-800 mb-12">My Certificates</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition w-full">
+          <img src="Screenshot (74).png" alt="Web Full Stack Developer Virtual Internship" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <h4 class="text-xl font-semibold text-blue-600">Web Full Stack Developer Virtual Internshi</h4>
+          <p class="text-gray-600 mt-2">Completed beginner in Web Full Stack Developer Virtual Internshi by Eduskills.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition w-full">
+          <img src="Screenshot (75).png" alt="Rooman technologies Pvt ltd.." class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <h4 class="text-xl font-semibold text-blue-600">Application developer - web and mobile</h4>
+          <p class="text-gray-600 mt-2"> Completed the Application developer - web and mobile by Rooman Technologies pvt ltd..</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition w-full">
+          <img src="Screenshot (76).png" alt="Artificial Intelligence and machine learning" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <h4 class="text-xl font-semibold text-blue-600">Artificial Intelligence and machine learning</h4>
+          <p class="text-gray-600 mt-2">Completed the Artificial Intelligence and machine learning by Smartbridge Educational pvt ltd...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gradient-to-br from-blue-300 to-indigo-500 text-white" data-aos="fade-up">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold mb-6">Get in Touch</h3>
+      <p class="text-lg text-gray-200 mb-8 max-w-xl mx-auto">I'm excited to collaborate or answer any questions. Reach out via email, phone, or social platforms!</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <a href="mailto:venkatavinitha38@gmail.com" class="btn-hover bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">📧 venkatavinitha38@gmail.com</a>
+        <a href="tel:+916281648445" class="btn-hover bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">📞 6281648445</a>
+        <a href="https://github.com/vinitha05c2" target="_blank" class="btn-hover bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">🐙 github.com/vinitha05c2</a>
+        <a href="https://www.linkedin.com/in/venkata-vinitha-raghavareddy-716170362" target="_blank" class="btn-hover bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">🔗 www.linkedin.com/in/venkata-vinitha-raghavareddy-716170362</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-6 text-center text-white">
+    <p class="text-sm">© 2025 Vinitha. Crafted with 💙 using HTML & CSS.</p>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 1000 });
+  </script>
+</body>
+</html>
